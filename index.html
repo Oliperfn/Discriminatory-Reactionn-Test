@@ -12,337 +12,159 @@ Características:
 - Configurable número de ensayos, porcentaje de objetivos, duración estímulo e intervalo.
 -->
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Test de Reacción Discriminatoria | Mide tu velocidad</title>
-  <meta name="description" content="Pon a prueba tu tiempo de reacción discriminante con este test online gratuito. ¿Eres lo suficientemente rápido para llegar a 120 ms?" />
-  <meta name="keywords" content="test de reacción, test discriminante, velocidad de reacción, reflejos, tiempo de respuesta, psicología experimental, atención selectiva" />
-</head>
+
+  <!-- 🔍 SEO -->
+  <meta name="description" content="Pon a prueba tu tiempo de reacción discriminante con este test online gratuito. ¿Eres lo suficientemente rápido para llegar a 120 ms?">
+  <meta name="keywords" content="test de reacción, test discriminante, velocidad de reacción, reflejos, tiempo de respuesta, psicología experimental, atención selectiva, prueba de reflejos">
+  <meta name="author" content="Oliperfn">
+
+  <!-- 🧠 Open Graph (para compartir en redes sociales) -->
+  <meta property="og:title" content="Test de Reacción Discriminatoria | Mide tu velocidad">
+  <meta property="og:description" content="Desafía tus reflejos y mide tu tiempo de reacción. ¿Podrás alcanzar los 120 ms?">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://oliperfn.github.io/Discriminatory-Reactionn-Test/">
+  <meta property="og:image" content="https://oliperfn.github.io/Discriminatory-Reactionn-Test/preview.png">
+
+  <!-- 🐦 Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Test de Reacción Discriminatoria">
+  <meta name="twitter:description" content="Pon a prueba tu tiempo de reacción con este test interactivo.">
+  <meta name="twitter:image" content="https://oliperfn.github.io/Discriminatory-Reactionn-Test/preview.png">
+
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#0284c7;--muted:#94a3b8;--white:#f8fafc}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#071126 0%, #071827 100%);color:var(--white);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .container{width:100%;max-width:980px;background:rgba(255,255,255,0.03);border-radius:12px;padding:22px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
-    h1{margin:0 0 6px;font-size:20px}
-    p.lead{margin:0 0 16px;color:var(--muted)}
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #0824c7;
+      --muted: #9493b8;
+      --white: #f8fafc;
+    }
 
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
-    .panel{background:rgba(255,255,255,0.02);padding:14px;border-radius:10px}
+    * {
+      box-sizing: border-box;
+    }
 
-    .stimulus-area{height:380px;display:flex;align-items:center;justify-content:center;flex-direction:column}
-    .fixation{font-size:36px;color:var(--muted);}
-    .circle{width:160px;height:160px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(2,6,23,0.6);}
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, #071126 0%, #071827 100%);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    button, input[type=number], select{background:linear-gradient(180deg,#0b1724,#081120);border:1px solid rgba(255,255,255,0.06);color:var(--white);padding:10px 12px;border-radius:8px}
-    button.primary{background:linear-gradient(180deg,#0369a1,#03527a);border:none}
-    .muted{color:var(--muted);font-size:13px}
+    .container {
+      width: 100%;
+      max-width: 980px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      text-align: center;
+    }
 
-    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
-    .field{margin-bottom:10px}
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
 
-    table{width:100%;border-collapse:collapse;margin-top:10px}
-    th,td{padding:8px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03);font-size:13px}
+    p {
+      color: var(--muted);
+    }
 
-    .results{margin-top:10px}
-    .center{text-align:center}
+    .stimulus-area {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+    }
 
-    footer{margin-top:12px;color:var(--muted);font-size:13px}
+    .circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: red;
+      transition: background-color 0.2s ease;
+    }
 
-    @media (max-width:900px){.grid{grid-template-columns:1fr;}.stimulus-area{height:260px}.circle{width:120px;height:120px}}
+    .btn {
+      margin-top: 30px;
+      background-color: var(--accent);
+      border: none;
+      color: var(--white);
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #2646e0;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Test de Velocidad de Reacción Discriminante</h1>
-    <p class="lead">Responde solo cuando aparezca <strong>el círculo azul</strong>. Pulsa <strong>ESPACIO</strong> o el botón "Responder". El test registra tiempos y errores.</p>
+    <h1>🧠 Test de Reacción Discriminatoria</h1>
+    <p>Haz clic tan pronto como el círculo cambie de color. ¿Podrás alcanzar los 120 ms?</p>
 
-    <div class="grid">
-      <div class="panel">
-        <div class="stimulus-area" id="stimulusArea">
-          <div class="fixation" id="fixation">+</div>
-          <div id="circleHolder" style="display:none"><div class="circle" id="circle"></div></div>
-        </div>
-
-        <div class="controls">
-          <button id="startBtn" class="primary">Iniciar prueba</button>
-          <button id="respondBtn">Responder (Espacio)</button>
-          <button id="nextBtn" style="display:none">Siguiente</button>
-          <button id="downloadBtn" style="display:none">Descargar CSV</button>
-          <button id="resetBtn">Reiniciar</button>
-        </div>
-
-        <div class="muted" style="margin-top:10px">Teclas: <strong>ESPACIO</strong> para responder. No pulses antes de iniciar.</div>
-
-        <div class="results" id="summary"></div>
-      </div>
-
-      <div class="panel">
-        <h3>Configuración</h3>
-        <div class="field">
-          <label>Número total de estímulos</label>
-          <input id="totalTrials" type="number" min="10" max="200" value="40">
-        </div>
-        <div class="field">
-          <label>% de estímulos objetivo (azul)</label>
-          <input id="targetPercent" type="number" min="5" max="80" value="25">
-        </div>
-        <div class="field">
-          <label>Duración del estímulo (ms)</label>
-          <input id="stimulusDuration" type="number" min="100" max="2000" value="500">
-        </div>
-        <div class="field">
-          <label>Intervalo entre estímulos - aleatorio (ms)</label>
-          <div style="display:flex;gap:8px"><input id="minISI" type="number" min="200" value="1000"><input id="maxISI" type="number" min="200" value="2500"></div>
-        </div>
-
-        <h3 style="margin-top:12px">Resultados detallados</h3>
-        <div id="tableWrap" style="max-height:320px;overflow:auto"></div>
-      </div>
+    <div class="stimulus-area">
+      <div id="circle" class="circle"></div>
     </div>
 
-    <footer>Diseñado para uso experimental/educativo — guarda y revisa los datos con cuidado.</footer>
+    <button id="startBtn" class="btn">Iniciar Prueba</button>
+    <div class="result" id="result"></div>
   </div>
 
   <script>
-    // Variables de configuración y estado
-    const startBtn = document.getElementById('startBtn');
-    const respondBtn = document.getElementById('respondBtn');
-    const resetBtn = document.getElementById('resetBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
-
-    const circleHolder = document.getElementById('circleHolder');
     const circle = document.getElementById('circle');
-    const fixation = document.getElementById('fixation');
-    const summary = document.getElementById('summary');
-    const tableWrap = document.getElementById('tableWrap');
+    const startBtn = document.getElementById('startBtn');
+    const result = document.getElementById('result');
+    let startTime, timeoutId, clickable = false;
 
-    let config = {};
-    let trials = [];
-    let currentIndex = -1;
-    let running = false;
-    let stimulusOnset = null;
-    let stimulusTimeout = null;
-    let isiTimeout = null;
-
-    function readConfig(){
-      config.total = parseInt(document.getElementById('totalTrials').value,10);
-      config.targetPercent = parseFloat(document.getElementById('targetPercent').value);
-      config.stimDur = parseInt(document.getElementById('stimulusDuration').value,10);
-      config.minISI = parseInt(document.getElementById('minISI').value,10);
-      config.maxISI = parseInt(document.getElementById('maxISI').value,10);
-      // Derived
-      config.nTargets = Math.round(config.total * (config.targetPercent/100));
-      if(config.nTargets < 1) config.nTargets = 1;
-    }
-
-    function buildTrials(){
-      // Stimuli: 'blue' is target, others are distractores
-      const colors = ['red','green','yellow','purple','orange']; // distractores
-      trials = [];
-      // create array with target and distractors
-      for(let i=0;i<config.total;i++) trials.push({isTarget:false,color:colors[Math.floor(Math.random()*colors.length)]});
-      // set some to target
-      let assigned = 0;
-      while(assigned < config.nTargets){
-        const idx = Math.floor(Math.random()*config.total);
-        if(!trials[idx].isTarget){
-          trials[idx].isTarget = true;
-          trials[idx].color = 'blue';
-          assigned++;
-        }
-      }
-      // shuffle distribution optionally
-    }
-
-    function showStimulus(item){
-      fixation.style.display='none';
-      circleHolder.style.display='block';
-      circle.style.background = item.color;
-      // store onset
-      stimulusOnset = performance.now();
-      item.onset = stimulusOnset;
-      // hide after stimulus duration
-      stimulusTimeout = setTimeout(()=>{
-        hideStimulus();
-      }, config.stimDur);
-    }
-
-    function hideStimulus(){
-      circleHolder.style.display='none';
-      fixation.style.display='block';
-      stimulusOnset = null;
-      // proceed to next after ISI
-      scheduleNextISI();
-    }
-
-    function scheduleNextISI(){
-      const isi = config.minISI + Math.random()*(config.maxISI - config.minISI);
-      isiTimeout = setTimeout(()=>{
-        nextTrial();
-      }, isi);
-    }
-
-    function startTest(){
-      if(running) return;
-      readConfig();
-      buildTrials();
-      currentIndex = -1;
-      running = true;
-      trials.forEach(t=>{t.response=null;t.rt=null;t.correct=null;});
-      summary.innerHTML = '<div class="muted">Prueba en curso...</div>';
-      tableWrap.innerHTML='';
+    startBtn.addEventListener('click', () => {
       startBtn.disabled = true;
-      downloadBtn.style.display='none';
-      nextTrial();
-    }
+      result.textContent = '';
+      circle.style.backgroundColor = 'red';
+      clickable = false;
 
-    function endTest(){
-      running = false;
-      startBtn.disabled = false;
-      clearTimeout(stimulusTimeout); clearTimeout(isiTimeout);
-      computeSummary();
-      downloadBtn.style.display='inline-block';
-    }
+      const delay = Math.random() * 3000 + 1500;
+      timeoutId = setTimeout(() => {
+        circle.style.backgroundColor = 'blue';
+        startTime = Date.now();
+        clickable = true;
+      }, delay);
+    });
 
-    function nextTrial(){
-      currentIndex++;
-      if(currentIndex >= trials.length){
-        endTest();
-        return;
-      }
-      const item = trials[currentIndex];
-      // show fixation for short moment then stimulus
-      fixation.style.display='block';
-      circleHolder.style.display='none';
-      // random jitter small
-      const pre = 300 + Math.random()*300;
-      setTimeout(()=>{
-        // present stimulus
-        showStimulus(item);
-      }, pre);
-    }
+    circle.addEventListener('click', () => {
+      if (!startBtn.disabled) return;
 
-    function registerResponse(isManual=false){
-      const now = performance.now();
-      // If no stimulus on screen, this is early response (commission if upcoming is not target)
-      let item = trials[currentIndex];
-      if(!running || !item){ return; }
-
-      if(stimulusOnset){
-        // response during stimulus
-        const rt = now - stimulusOnset;
-        item.response = 'responded';
-        item.rt = Math.round(rt);
-        item.correct = item.isTarget; // correct only if was target
-        // If response occurred and target, we still hide stimulus immediately
-        if(item.isTarget){
-          // hide and go to next trial
-          clearTimeout(stimulusTimeout);
-          hideStimulus();
-        } else {
-          // response to distractor -> commission error, allow stimulus to finish then continue
-        }
+      if (clickable) {
+        const reactionTime = Date.now() - startTime;
+        result.textContent = `⏱️ Tiempo de reacción: ${reactionTime} ms`;
+        startBtn.disabled = false;
       } else {
-        // response during ISI or before stimulus: count as commission error for the current trial
-        // mark previous trial as commission if it was a distractor; else if it's target and missed it's omission
-        item.response = 'early';
-        item.rt = null;
-        item.correct = false;
-      }
-      renderTable();
-    }
-
-    // Keyboard handling
-    window.addEventListener('keydown', (e)=>{
-      if(e.code === 'Space'){
-        e.preventDefault();
-        if(running) registerResponse(true);
+        clearTimeout(timeoutId);
+        result.textContent = '❌ Muy pronto. Espera a que cambie de color.';
+        startBtn.disabled = false;
       }
     });
-
-    respondBtn.addEventListener('click', ()=>{
-      if(running) registerResponse(true);
-    });
-
-    startBtn.addEventListener('click', ()=>startTest());
-    resetBtn.addEventListener('click', ()=>{
-      if(confirm('Reiniciar borrará los resultados actuales. ¿Continuar?')){
-        running=false; startBtn.disabled=false; clearTimeout(stimulusTimeout); clearTimeout(isiTimeout);
-        trials=[]; currentIndex=-1; summary.innerHTML=''; tableWrap.innerHTML=''; downloadBtn.style.display='none';
-      }
-    });
-
-    downloadBtn.addEventListener('click', ()=>{
-      const csv = buildCSV();
-      const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'resultados_test_reaccion.csv';
-      document.body.appendChild(a); a.click(); a.remove();
-      URL.revokeObjectURL(url);
-    });
-
-    function computeSummary(){
-      // Count correct responses to targets (hits), omissions, commissions
-      let hits = 0, omissions = 0, commissions = 0, rtSum = 0, rtCount = 0;
-      trials.forEach(t=>{
-        if(t.isTarget){
-          if(t.response === 'responded' && t.correct){ hits++; rtSum += t.rt; rtCount++; }
-          else omissions++;
-        } else {
-          if(t.response === 'responded' || t.response === 'early') commissions++;
-        }
-      });
-      const meanRT = rtCount? Math.round(rtSum/rtCount): null;
-      const accuracy = Math.round((hits / config.nTargets) * 100);
-      const commissionRate = Math.round((commissions / (trials.length - config.nTargets))*100);
-
-      let html = `<div><strong>Resultados:</strong></div>`;
-      html += `<table><tr><td>Ensayos totales</td><td>${trials.length}</td></tr>`;
-      html += `<tr><td>Objetivos (azules)</td><td>${config.nTargets}</td></tr>`;
-      html += `<tr><td>Respuestas correctas (hits)</td><td>${hits}</td></tr>`;
-      html += `<tr><td>Omisiones</td><td>${omissions}</td></tr>`;
-      html += `<tr><td>Errores de comisión</td><td>${commissions}</td></tr>`;
-      html += `<tr><td>Tiempo medio de reacción (ms)</td><td>${meanRT !== null ? meanRT : '-'}</td></tr>`;
-      html += `<tr><td>% aciertos en objetivos</td><td>${accuracy}%</td></tr>`;
-      html += `<tr><td>% comisión (sobre distractores)</td><td>${commissionRate}%</td></tr></table>`;
-
-      summary.innerHTML = html;
-      renderTable();
-    }
-
-    function renderTable(){
-      let html = '<table><thead><tr><th>#</th><th>Color</th><th>Objetivo?</th><th>Respuesta</th><th>RT (ms)</th></tr></thead><tbody>';
-      trials.forEach((t,i)=>{
-        html += `<tr><td>${i+1}</td><td style=\"text-transform:capitalize\">${t.color}</td><td>${t.isTarget? 'Sí':'No'}</td><td>${t.response? t.response : '-'}</td><td>${t.rt !== null && t.rt !== undefined ? t.rt : '-'}</td></tr>`;
-      });
-      html += '</tbody></table>';
-      tableWrap.innerHTML = html;
-    }
-
-    function buildCSV(){
-      const header = ['trial','color','isTarget','response','rt_ms','onset_unix_ms'];
-      const rows = [header.join(',')];
-      const now = Date.now();
-      trials.forEach((t,i)=>{
-        const onsetTs = t.onset ? Math.round(Date.now() - (performance.now() - t.onset)) : '';
-        rows.push([i+1,t.color,t.isTarget,t.response || '',t.rt || '',onsetTs].join(','));
-      });
-      return rows.join('\n');
-    }
-
-    // Helpful: beforeunload confirmation if running
-    window.addEventListener('beforeunload', (e)=>{
-      if(running){ e.preventDefault(); e.returnValue = '' }
-    });
-
-    // Initial render
-    renderTable();
   </script>
 </body>
 </html>
