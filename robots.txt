@@ -1,0 +1,11 @@
+# robots.txt
+# Indica a los motores de búsqueda qué rastrear
+User-agent: *
+Allow: /
+
+# Evita rastrear archivos del sistema o temporales
+Disallow: /README.md
+Disallow: /LICENSE
+
+# Mapa del sitio (ayuda a Google a indexar)
+Sitemap: https://oliperfn.github.io/Discriminatory-Reactionn-Test/sitemap.xml
